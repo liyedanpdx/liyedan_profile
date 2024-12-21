@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/liyedan_profile/static/css/main.12acfeed.css",
-    "main.js": "/liyedan_profile/static/js/main.0aa23843.js",
+    "main.js": "/liyedan_profile/static/js/main.ee41ab75.js",
     "static/js/488.21a3b654.chunk.js": "/liyedan_profile/static/js/488.21a3b654.chunk.js",
     "index.html": "/liyedan_profile/index.html",
     "main.12acfeed.css.map": "/liyedan_profile/static/css/main.12acfeed.css.map",
-    "main.0aa23843.js.map": "/liyedan_profile/static/js/main.0aa23843.js.map",
+    "main.ee41ab75.js.map": "/liyedan_profile/static/js/main.ee41ab75.js.map",
     "488.21a3b654.chunk.js.map": "/liyedan_profile/static/js/488.21a3b654.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.12acfeed.css",
-    "static/js/main.0aa23843.js"
+    "static/js/main.ee41ab75.js"
   ]
 }
