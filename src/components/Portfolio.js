@@ -52,7 +52,7 @@ const Portfolio = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0">
-              <span className="text-xl font-bold">YourName</span>
+              <span className="text-xl font-bold">Yedan Li</span>
             </div>
             
             {/* Desktop Menu */}
