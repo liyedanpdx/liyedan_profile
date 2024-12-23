@@ -74,29 +74,29 @@ const Portfolio = () => {
   const projects = [
     {
       name: "Lindell Animal Home",
-      description: "An interactive web application for an animal shelter, featuring a modern UI design and responsive gallery. Implements advanced JavaScript functionality for image handling and user interactions.",
-      tech: "JavaScript, CSS3, HTML5, Responsive Design",
+      description: "An interactive web application for an animal shelter, featuring a modern UI design and responsive gallery. Implements advanced JavaScript functionality for image handling and user interactions with optimized performance.",
+      tech: "JavaScript, CSS3, HTML5, Responsive Design, jQuery",
       image: project1Image,
       demo: "https://lindellanimalhome.netlify.app/gallery",
       code: "https://github.com/liyedanpdx/m1-assignment"
     },
     {
-      name: "Progressive Weather App",
-      description: "A Progressive Web Application that provides real-time weather updates and forecasts. Features offline functionality, push notifications, and a responsive interface optimized for all devices.",
-      tech: "Bootstrap 5, PWA, JavaScript, Weather API, Service Workers",
+      name: "Progressive Swimming App",
+      description: "A comprehensive web application for a swimming organization, delivering essential features in a progressive web app format. Features include dynamic content updates, offline functionality, and a responsive interface that adapts seamlessly across all devices.",
+      tech: "Bootstrap 5, PWA, JavaScript, Responsive Design",
       image: project2Image,
       demo: "https://liyedanpdx.github.io/Project1-Group-Blue/",
       code: "https://github.com/liyedanpdx/Project1-Group-Blue"
     },
     {
       name: "Travel Blog Platform",
-      description: "A full-stack travel blog platform built with the MERN stack. Features user authentication, blog post creation/editing, image uploads, and interactive comments system.",
-      tech: "React, MongoDB, Express.js, Node.js, SASS, JWT Authentication",
+      description: "A feature-rich MERN stack travel blog platform focusing on user experience and content management. Implements secure authentication, real-time post editing, dynamic content loading, and an interactive commenting system.",
+      tech: "React, MongoDB, Express.js, Node.js, SASS, JWT Authentication, RESTful API",
       image: project3Image,
       demo: "https://travelblog-web603.netlify.app/",
       code: "https://github.com/liyedanpdx/web-403-project-3"
     }
-  ];
+];
 
   return (
     <div className="min-h-screen bg-gray-50">
