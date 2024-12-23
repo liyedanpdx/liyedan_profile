@@ -1,71 +1,79 @@
 import React, { useState } from 'react';
 import { Menu, GithubIcon, LinkedinIcon, MailIcon, DownloadIcon, ExternalLinkIcon } from 'lucide-react';
+import meImage from '../images/me.jpg';
+import project1Image from '../images/p1.png';
+import project2Image from '../images/p2.png';
+import project3Image from '../images/p3.png';
+
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const skills = [
     { 
-      category: "Front-End", 
-      items: ["HTML5", "CSS3", "JavaScript", "jQuery", "Bootstrap 4", "Responsive Web Design", "Vue.js", "MVVC"] 
+      category: "Front-End Development", 
+      items: ["HTML5", "CSS3", "JavaScript (ES6+)", "jQuery", "Bootstrap 4/5", "Responsive Design", "Vue.js", "MVVC Pattern"] 
     },
     { 
-      category: "Back-End", 
-      items: ["Node.js", "Express", "MongoDB", "Mongoose", "LESS/SASS", "Authentication", "PWA"] 
+      category: "Back-End Development", 
+      items: ["Node.js", "Express.js", "MongoDB", "Mongoose ODM", "LESS/SASS", "Authentication Systems", "Progressive Web Apps"] 
     },
     { 
-      category: "Full-Stack", 
-      items: ["React.js", "OAuth", "RESTful API", "Data Structures", "Algorithms", "React Router", "Redux"] 
+      category: "Full-Stack Expertise", 
+      items: ["React.js", "OAuth 2.0", "RESTful APIs", "Data Structures", "Algorithms", "React Router", "Redux/Context API"] 
     }
   ];
 
   const projects = [
     {
-      name: "Project 1",
-      description: "A React-based web application showcasing front-end development skills.",
-      tech: "React, Redux, Bootstrap",
-      image: "/placeholder.jpg",
-      demo: "#",
-      code: "#"
+      name: "Lindell Animal Home",
+      description: "An interactive web application for an animal shelter, featuring a modern UI design and responsive gallery. Implements advanced JavaScript functionality for image handling and user interactions.",
+      tech: "JavaScript, CSS3, HTML5, Responsive Design",
+      image: project1Image,
+      demo: "https://lindellanimalhome.netlify.app/gallery",
+      code: "https://github.com/liyedanpdx/m1-assignment"
     },
     {
-      name: "Project 2",
-      description: "Full-stack application with Node.js backend and MongoDB database.",
-      tech: "Node.js, Express, MongoDB, React",
-      image: "/placeholder.jpg",
-      demo: "#",
-      code: "#"
+      name: "Progressive Weather App",
+      description: "A Progressive Web Application that provides real-time weather updates and forecasts. Features offline functionality, push notifications, and a responsive interface optimized for all devices.",
+      tech: "Bootstrap 5, PWA, JavaScript, Weather API, Service Workers",
+      image: project2Image,
+      demo: "https://liyedanpdx.github.io/Project1-Group-Blue/",
+      code: "https://github.com/liyedanpdx/Project1-Group-Blue"
     },
     {
-      name: "Project 3",
-      description: "Vue.js application demonstrating MVVC architecture.",
-      tech: "Vue.js, Vuex, Bootstrap",
-      image: "/placeholder.jpg",
-      demo: "#",
-      code: "#"
+      name: "Travel Blog Platform",
+      description: "A full-stack travel blog platform built with the MERN stack. Features user authentication, blog post creation/editing, image uploads, and interactive comments system.",
+      tech: "React, MongoDB, Express.js, Node.js, SASS, JWT Authentication",
+      image: project3Image,
+      demo: "https://travelblog-web603.netlify.app/",
+      code: "https://github.com/liyedanpdx/web-403-project-3"
     }
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Navigation */}
-      <nav className="bg-white shadow-sm fixed w-full top-0 z-50">
+{/* Navigation */}
+<nav className="bg-white shadow-sm fixed w-full top-0 z-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0">
-              <span className="text-xl font-bold">Yedan Li</span>
+              <span className="text-xl font-bold text-gray-800">Yedan Li</span>
             </div>
             
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
-              <a href="#about" className="text-gray-700 hover:text-gray-900">About</a>
-              <a href="#skills" className="text-gray-700 hover:text-gray-900">Skills</a>
-              <a href="#projects" className="text-gray-700 hover:text-gray-900">Projects</a>
-              <a href="#contact" className="text-gray-700 hover:text-gray-900">Contact</a>
+              <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors duration-300">About</a>
+              <a href="#skills" className="text-gray-700 hover:text-blue-600 transition-colors duration-300">Skills</a>
+              <a href="#projects" className="text-gray-700 hover:text-blue-600 transition-colors duration-300">Projects</a>
+              <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors duration-300">Contact</a>
             </div>
 
             {/* Mobile Menu Button */}
             <div className="md:hidden">
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-500 hover:text-gray-600">
+              <button 
+                onClick={() => setIsMenuOpen(!isMenuOpen)} 
+                className="text-gray-500 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 rounded-lg"
+              >
                 <Menu size={24} />
               </button>
             </div>
@@ -73,40 +81,72 @@ const Portfolio = () => {
 
           {/* Mobile Menu */}
           {isMenuOpen && (
-            <div className="md:hidden py-4">
+            <div className="md:hidden py-4 bg-white border-t">
               <div className="flex flex-col space-y-4">
-                <a href="#about" className="text-gray-700 hover:text-gray-900">About</a>
-                <a href="#skills" className="text-gray-700 hover:text-gray-900">Skills</a>
-                <a href="#projects" className="text-gray-700 hover:text-gray-900">Projects</a>
-                <a href="#contact" className="text-gray-700 hover:text-gray-900">Contact</a>
+                <a 
+                  href="#about" 
+                  className="text-gray-700 hover:text-blue-600 transition-colors duration-300 px-4 py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  About
+                </a>
+                <a 
+                  href="#skills" 
+                  className="text-gray-700 hover:text-blue-600 transition-colors duration-300 px-4 py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Skills
+                </a>
+                <a 
+                  href="#projects" 
+                  className="text-gray-700 hover:text-blue-600 transition-colors duration-300 px-4 py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Projects
+                </a>
+                <a 
+                  href="#contact" 
+                  className="text-gray-700 hover:text-blue-600 transition-colors duration-300 px-4 py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact
+                </a>
               </div>
             </div>
           )}
         </div>
       </nav>
-
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 pt-20">
         {/* About Section */}
         <section id="about" className="py-20 flex flex-col items-center">
           <div className="text-center max-w-2xl">
-            <div className="w-32 h-32 rounded-full bg-gray-200 mx-auto mb-6"></div>
-            <h1 className="text-4xl font-bold mb-4">Your Name</h1>
+            <img 
+              src={meImage} 
+              alt="Yedan Li"
+              className="w-32 h-32 rounded-full object-cover mx-auto mb-6 shadow-lg"
+            />
+            <h1 className="text-4xl font-bold mb-4 text-gray-800">Yedan Li</h1>
             <p className="text-xl text-gray-600 mb-6">Full Stack Developer</p>
-            <p className="text-gray-700 mb-8">A passionate full-stack developer with experience in modern web technologies. Focused on creating efficient, scalable, and user-friendly applications.</p>
+            <p className="text-gray-700 mb-8 leading-relaxed">
+              A passionate and innovative full-stack developer with expertise in modern web technologies 
+              and best practices. Specialized in creating efficient, scalable, and user-centric applications 
+              with a focus on React and Node.js ecosystems. Committed to writing clean, maintainable code 
+              and building intuitive user experiences.
+            </p>
             <div className="flex justify-center space-x-4">
-              <button className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+              <button className="flex items-center space-x-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg">
                 <DownloadIcon size={20} />
                 <span>Download Resume</span>
               </button>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <a href="https://github.com/liyedanpdx" className="text-gray-600 hover:text-gray-900 transition-colors duration-300">
                   <GithubIcon size={24} />
                 </a>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <a href="https://www.linkedin.com/in/yedan-daniel-li-579133184/" className="text-gray-600 hover:text-gray-900 transition-colors duration-300">
                   <LinkedinIcon size={24} />
                 </a>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <a href="mailto:lyd1477349909@outlook.com" className="text-gray-600 hover:text-gray-900 transition-colors duration-300">
                   <MailIcon size={24} />
                 </a>
               </div>
@@ -116,14 +156,14 @@ const Portfolio = () => {
 
         {/* Skills Section */}
         <section id="skills" className="py-20">
-          <h2 className="text-3xl font-bold mb-12 text-center">Skills</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-gray-800">Technical Skills</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {skills.map((skillGroup, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-4">{skillGroup.category}</h3>
-                <div className="flex flex-wrap gap-2">
+              <div key={index} className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                <h3 className="text-xl font-semibold mb-6 text-gray-800">{skillGroup.category}</h3>
+                <div className="flex flex-wrap gap-3">
                   {skillGroup.items.map((skill, skillIndex) => (
-                    <span key={skillIndex} className="bg-gray-100 px-3 py-1 rounded-full text-sm">
+                    <span key={skillIndex} className="bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium">
                       {skill}
                     </span>
                   ))}
@@ -135,23 +175,39 @@ const Portfolio = () => {
 
         {/* Projects Section */}
         <section id="projects" className="py-20">
-          <h2 className="text-3xl font-bold mb-12 text-center">Projects</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-gray-800">Featured Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div className="h-48 bg-gray-200"></div>
+              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
+                  <h3 className="text-xl font-semibold mb-3 text-gray-800">{project.name}</h3>
                   <p className="text-gray-600 mb-4">{project.description}</p>
-                  <p className="text-gray-500 text-sm mb-4">{project.tech}</p>
+                  <p className="text-gray-500 text-sm mb-4 font-medium">{project.tech}</p>
                   <div className="flex space-x-4">
-                    <a href={project.demo} className="flex items-center text-blue-600 hover:text-blue-800">
+                    <a 
+                      href={project.demo} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
+                    >
                       <ExternalLinkIcon size={16} className="mr-1" />
-                      Demo
+                      Live Demo
                     </a>
-                    <a href={project.code} className="flex items-center text-blue-600 hover:text-blue-800">
+                    <a 
+                      href={project.code}
+                      target="_blank"
+                      rel="noopener noreferrer" 
+                      className="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
+                    >
                       <GithubIcon size={16} className="mr-1" />
-                      Code
+                      View Code
                     </a>
                   </div>
                 </div>
@@ -162,32 +218,35 @@ const Portfolio = () => {
 
         {/* Contact Section */}
         <section id="contact" className="py-20">
-          <h2 className="text-3xl font-bold mb-12 text-center">Contact</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-gray-800">Get In Touch</h2>
           <form className="max-w-lg mx-auto">
             <div className="mb-6">
-              <label className="block text-gray-700 mb-2">Name</label>
+              <label className="block text-gray-700 font-medium mb-2">Name</label>
               <input 
                 type="text"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                placeholder="Your name"
               />
             </div>
             <div className="mb-6">
-              <label className="block text-gray-700 mb-2">Email</label>
+              <label className="block text-gray-700 font-medium mb-2">Email</label>
               <input 
                 type="email"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                placeholder="your.email@example.com"
               />
             </div>
             <div className="mb-6">
-              <label className="block text-gray-700 mb-2">Message</label>
+              <label className="block text-gray-700 font-medium mb-2">Message</label>
               <textarea 
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                 rows="6"
+                placeholder="Your message..."
               ></textarea>
             </div>
             <button 
               type="submit"
-              className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+              className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-all duration-300 font-medium shadow-md hover:shadow-lg"
             >
               Send Message
             </button>
@@ -200,16 +259,16 @@ const Portfolio = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-              <p>&copy; 2024 Your Name. All rights reserved.</p>
+              <p>&copy; 2025 Yedan Li. All rights reserved.</p>
             </div>
             <div className="flex space-x-6">
-              <a href="#" className="hover:text-gray-300">
+              <a href="https://github.com/liyedanpdx" className="hover:text-gray-300 transition-colors duration-300">
                 <GithubIcon size={24} />
               </a>
-              <a href="#" className="hover:text-gray-300">
+              <a href="https://www.linkedin.com/in/yedan-daniel-li-579133184/" className="hover:text-gray-300 transition-colors duration-300">
                 <LinkedinIcon size={24} />
               </a>
-              <a href="#" className="hover:text-gray-300">
+              <a href="mailto:lyd1477349909@outlook.com" className="hover:text-gray-300 transition-colors duration-300">
                 <MailIcon size={24} />
               </a>
             </div>
