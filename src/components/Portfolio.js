@@ -376,6 +376,7 @@ const Portfolio = () => {
               <a 
               href="mailto:lyd1477349909@outlook.com" 
               target="_blank" 
+              
               rel="noopener noreferrer"
               className="hover:text-gray-300 transition-colors duration-300"
               >
