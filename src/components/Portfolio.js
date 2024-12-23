@@ -133,6 +133,8 @@ const Portfolio = () => {
               <div className="flex flex-col space-y-4">
                 <a 
                   href="#about" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="text-gray-700 hover:text-blue-600 transition-colors duration-300 px-4 py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -140,6 +142,8 @@ const Portfolio = () => {
                 </a>
                 <a 
                   href="#skills" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="text-gray-700 hover:text-blue-600 transition-colors duration-300 px-4 py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -147,6 +151,8 @@ const Portfolio = () => {
                 </a>
                 <a 
                   href="#projects" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="text-gray-700 hover:text-blue-600 transition-colors duration-300 px-4 py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -154,6 +160,8 @@ const Portfolio = () => {
                 </a>
                 <a 
                   href="#contact" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="text-gray-700 hover:text-blue-600 transition-colors duration-300 px-4 py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -183,15 +191,29 @@ const Portfolio = () => {
               and building intuitive user experiences.
             </p>
             <div className="flex justify-center space-x-4">
-              <button className="flex items-center space-x-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg">
-                <DownloadIcon size={20} />
-                <span>Download Resume</span>
-              </button>
+            <a 
+              href={process.env.PUBLIC_URL + "/files/Yedan_Li_Resume.docx"}  // 使用 PUBLIC_URL
+              download="Yedan_Li_Resume.docx"
+              className="flex items-center space-x-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg"
+            >
+              <DownloadIcon size={20} />
+              <span>Download Resume</span>
+            </a>
               <div className="flex space-x-4">
-                <a href="https://github.com/liyedanpdx" className="text-gray-600 hover:text-gray-900 transition-colors duration-300">
+                <a 
+                href="https://github.com/liyedanpdx" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
+                >
                   <GithubIcon size={24} />
                 </a>
-                <a href="https://www.linkedin.com/in/yedan-daniel-li-579133184/" className="text-gray-600 hover:text-gray-900 transition-colors duration-300">
+                <a 
+                href="https://www.linkedin.com/in/yedan-daniel-li-579133184/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
+                >
                   <LinkedinIcon size={24} />
                 </a>
                 <a href="mailto:lyd1477349909@outlook.com" className="text-gray-600 hover:text-gray-900 transition-colors duration-300">
@@ -335,13 +357,28 @@ const Portfolio = () => {
               <p>&copy; 2025 Yedan Li. All rights reserved.</p>
             </div>
             <div className="flex space-x-6">
-              <a href="https://github.com/liyedanpdx" className="hover:text-gray-300 transition-colors duration-300">
+              <a 
+              href="https://github.com/liyedanpdx" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-gray-300 transition-colors duration-300"
+              >
                 <GithubIcon size={24} />
               </a>
-              <a href="https://www.linkedin.com/in/yedan-daniel-li-579133184/" className="hover:text-gray-300 transition-colors duration-300">
+              <a 
+              href="https://www.linkedin.com/in/yedan-daniel-li-579133184/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-gray-300 transition-colors duration-300"
+              >
                 <LinkedinIcon size={24} />
               </a>
-              <a href="mailto:lyd1477349909@outlook.com" className="hover:text-gray-300 transition-colors duration-300">
+              <a 
+              href="mailto:lyd1477349909@outlook.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-gray-300 transition-colors duration-300"
+              >
                 <MailIcon size={24} />
               </a>
             </div>
