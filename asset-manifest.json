@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.css": "/liyedan_profile/static/css/main.12acfeed.css",
-    "main.js": "/liyedan_profile/static/js/main.ee41ab75.js",
+    "main.css": "/liyedan_profile/static/css/main.34f0d4a1.css",
+    "main.js": "/liyedan_profile/static/js/main.aad33604.js",
     "static/js/488.21a3b654.chunk.js": "/liyedan_profile/static/js/488.21a3b654.chunk.js",
+    "static/media/p2.png": "/liyedan_profile/static/media/p2.3809f47d981819323eb4.png",
+    "static/media/p3.png": "/liyedan_profile/static/media/p3.391b2785e31aa8133e8f.png",
+    "static/media/p1.png": "/liyedan_profile/static/media/p1.44e88e48714437e071fc.png",
+    "static/media/me.jpg": "/liyedan_profile/static/media/me.c2af95e9c4128090f6bb.jpg",
     "index.html": "/liyedan_profile/index.html",
-    "main.12acfeed.css.map": "/liyedan_profile/static/css/main.12acfeed.css.map",
-    "main.ee41ab75.js.map": "/liyedan_profile/static/js/main.ee41ab75.js.map",
+    "main.34f0d4a1.css.map": "/liyedan_profile/static/css/main.34f0d4a1.css.map",
+    "main.aad33604.js.map": "/liyedan_profile/static/js/main.aad33604.js.map",
     "488.21a3b654.chunk.js.map": "/liyedan_profile/static/js/488.21a3b654.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.12acfeed.css",
-    "static/js/main.ee41ab75.js"
+    "static/css/main.34f0d4a1.css",
+    "static/js/main.aad33604.js"
   ]
 }
