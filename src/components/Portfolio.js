@@ -4,10 +4,58 @@ import meImage from '../images/me.jpg';
 import project1Image from '../images/p1.png';
 import project2Image from '../images/p2.png';
 import project3Image from '../images/p3.png';
+import emailjs from '@emailjs/browser';
+
+emailjs.init("EJ1TMzy1NNy8TnKuI");
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  //email status
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [submitStatus, setSubmitStatus] = useState({
+    isSubmitting: false,
+    isSubmitted: false,
+    error: null
+  });
 
+  // email input
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // email submit  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitStatus({ isSubmitting: true, isSubmitted: false, error: null });
+  
+    try {
+      await emailjs.send(
+        'service_re5erby', // 从 EmailJS 获取
+        'template_yvd3um6', // 从 EmailJS 获取
+        {
+          from_name: formData.name,
+          reply_to: formData.email,
+          message: formData.message,
+          to_email: 'lyd1477349909@outlook.com'
+        },
+        'EJ1TMzy1NNy8TnKuI' // 从 EmailJS 获取
+      );
+  
+      setSubmitStatus({ isSubmitting: false, isSubmitted: true, error: null });
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      setSubmitStatus({ isSubmitting: false, isSubmitted: false, error: error.text });
+    }
+  };
+  
   const skills = [
     { 
       category: "Front-End Development", 
@@ -219,37 +267,62 @@ const Portfolio = () => {
         {/* Contact Section */}
         <section id="contact" className="py-20">
           <h2 className="text-3xl font-bold mb-12 text-center text-gray-800">Get In Touch</h2>
-          <form className="max-w-lg mx-auto">
+          <form className="max-w-lg mx-auto" onSubmit={handleSubmit}>
             <div className="mb-6">
               <label className="block text-gray-700 font-medium mb-2">Name</label>
               <input 
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                 placeholder="Your name"
+                required
               />
             </div>
             <div className="mb-6">
               <label className="block text-gray-700 font-medium mb-2">Email</label>
               <input 
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                 placeholder="your.email@example.com"
+                required
               />
             </div>
             <div className="mb-6">
               <label className="block text-gray-700 font-medium mb-2">Message</label>
               <textarea 
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                 rows="6"
                 placeholder="Your message..."
+                required
               ></textarea>
             </div>
             <button 
               type="submit"
-              className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-all duration-300 font-medium shadow-md hover:shadow-lg"
+              disabled={submitStatus.isSubmitting}
+              className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-all duration-300 font-medium shadow-md hover:shadow-lg disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
-              Send Message
+              {submitStatus.isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
+            
+            {/* 显示提交状态 */}
+            {submitStatus.isSubmitted && (
+              <div className="mt-4 text-green-600 text-center">
+                Message sent successfully!
+              </div>
+            )}
+            {submitStatus.error && (
+              <div className="mt-4 text-red-600 text-center">
+                Error sending message: {submitStatus.error}
+              </div>
+            )}
           </form>
         </section>
       </main>
