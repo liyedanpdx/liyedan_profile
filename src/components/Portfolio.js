@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, GithubIcon, LinkedinIcon, MailIcon, DownloadIcon, ExternalLinkIcon } from 'lucide-react';
 import meImage from '../images/me.jpg';
 import project1Image from '../images/p1.png';
 import project2Image from '../images/p2.png';
 import project3Image from '../images/p3.png';
 import emailjs from '@emailjs/browser';
+import ReactGA from 'react-ga4';
 
 emailjs.init("EJ1TMzy1NNy8TnKuI");
 
 const Portfolio = () => {
+  //GA
+  useEffect(() => {
+    ReactGA.initialize('G-D1VYBTCMEW'); // 这里需要替换为你的实际 ID
+    ReactGA.send("pageview");
+  }, []);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   //email status
   const [formData, setFormData] = useState({
@@ -21,6 +28,32 @@ const Portfolio = () => {
     isSubmitted: false,
     error: null
   });
+
+
+  // add event tracking ga functions
+  const handleResumeDownload = () => {
+    ReactGA.event({
+      category: 'User',
+      action: 'Downloaded Resume',
+      label: 'Resume'
+    });
+  };
+
+  const handleProjectClick = (projectName, type) => {
+    ReactGA.event({
+      category: 'Project',
+      action: type === 'demo' ? 'Viewed Demo' : 'Viewed Code',
+      label: projectName
+    });
+  };
+
+  const handleContactSubmit = () => {
+    ReactGA.event({
+      category: 'Contact',
+      action: 'Form Submitted',
+      label: 'Contact Form'
+    });
+  };
 
   // email input
   const handleInputChange = (e) => {
@@ -48,7 +81,8 @@ const Portfolio = () => {
         },
         'EJ1TMzy1NNy8TnKuI' // 从 EmailJS 获取
       );
-  
+
+      handleContactSubmit(); 
       setSubmitStatus({ isSubmitting: false, isSubmitted: true, error: null });
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
@@ -133,7 +167,6 @@ const Portfolio = () => {
               <div className="flex flex-col space-y-4">
                 <a 
                   href="#about" 
-                  target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-700 hover:text-blue-600 transition-colors duration-300 px-4 py-2"
                   onClick={() => setIsMenuOpen(false)}
@@ -194,6 +227,7 @@ const Portfolio = () => {
             <a 
               href={process.env.PUBLIC_URL + "/files/Yedan_Li_Resume.docx"}  // 使用 PUBLIC_URL
               download="Yedan_Li_Resume.docx"
+              onClick={handleResumeDownload}
               className="flex items-center space-x-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg"
             >
               <DownloadIcon size={20} />
@@ -265,6 +299,7 @@ const Portfolio = () => {
                       href={project.demo} 
                       target="_blank" 
                       rel="noopener noreferrer"
+                      onClick={() => handleProjectClick(project.name, 'demo')}
                       className="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
                     >
                       <ExternalLinkIcon size={16} className="mr-1" />
@@ -274,6 +309,7 @@ const Portfolio = () => {
                       href={project.code}
                       target="_blank"
                       rel="noopener noreferrer" 
+                      onClick={() => handleProjectClick(project.name, 'code')} 
                       className="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
                     >
                       <GithubIcon size={16} className="mr-1" />
@@ -350,37 +386,44 @@ const Portfolio = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12">
+      <footer className="bg-gray-800 text-white py-8">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
+          <div className="flex flex-row justify-between items-center">
+            <div className="flex items-center space-x-2">
               <p>&copy; 2025 Yedan Li. All rights reserved.</p>
+              <div>
+                <img 
+                  src="https://visitor-badge.laobi.icu/badge?page_id=liyedanpdx.liyedan_profile" 
+                  alt="visitors" 
+                  className="ml-3 inline"
+                />
+              </div>
             </div>
-            <div className="flex space-x-6">
+
+            <div className="flex items-center space-x-6">
               <a 
-              href="https://github.com/liyedanpdx" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-gray-300 transition-colors duration-300"
+                href="https://github.com/liyedanpdx" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-gray-300 transition-colors duration-300"
               >
-                <GithubIcon size={24} />
+                <GithubIcon size={20} /> {/* 稍微减小图标尺寸 */}
               </a>
               <a 
-              href="https://www.linkedin.com/in/yedan-daniel-li-579133184/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-gray-300 transition-colors duration-300"
+                href="https://www.linkedin.com/in/yedan-daniel-li-579133184/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-gray-300 transition-colors duration-300"
               >
-                <LinkedinIcon size={24} />
+                <LinkedinIcon size={20} />
               </a>
               <a 
-              href="mailto:lyd1477349909@outlook.com" 
-              target="_blank" 
-              
-              rel="noopener noreferrer"
-              className="hover:text-gray-300 transition-colors duration-300"
+                href="mailto:lyd1477349909@outlook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-gray-300 transition-colors duration-300"
               >
-                <MailIcon size={24} />
+                <MailIcon size={20} />
               </a>
             </div>
           </div>
